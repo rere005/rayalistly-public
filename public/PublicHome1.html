@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RayaListly - Shared Shopping List</title>
+  <link rel="icon" href="bilder/icon.png" />
+
+  <link rel="stylesheet" href="PublicHome1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" id="logo-link">
+      <img class="brand-logo" src="bilder/logo.png" alt="RayaListly logo" />
+    </a>
+
+    <nav class="top-actions" aria-label="Authentication">
+      <button type="button" class="btn btn-ghost" id="open-login">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Log in
+      </button>
+
+      <button type="button" class="btn btn-primary" id="open-signup">
+        <i class="fa-solid fa-user-plus"></i>
+        Sign up
+      </button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="badge">
+          <i class="fa-solid fa-circle-nodes"></i>
+          Smart sharing
+        </p>
+
+        <h1 class="hero-title">
+          Shared shopping lists that the whole group can update.
+        </h1>
+
+        <p class="hero-subtitle">
+          Create lists, invite members, and mark items as bought.
+          Perfect for families, friends, or shared student housing.
+        </p>
+
+        <div class="hero-cta">
+          <button type="button" class="btn btn-primary btn-lg" id="cta-get-started">
+            Get started
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <a class="btn btn-ghost btn-lg" href="#how-it-works">
+            How it works
+          </a>
+        </div>
+
+        <div class="hero-stats" aria-label="Highlights">
+          <div class="stat">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-text">
+              <div class="stat-title">Share lists</div>
+              <div class="stat-desc">Multiple users on the same list</div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="stat-text">
+              <div class="stat-title">Mark as bought</div>
+              <div class="stat-desc">Keep track of what is done</div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="stat-text">
+              <div class="stat-title">Accounts</div>
+              <div class="stat-desc">Login and signup with database</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="mock-card">
+          <div class="mock-header">
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+            <div class="mock-dot"></div>
+            <span class="mock-title">Shared list: Student Housing</span>
+          </div>
+
+          <ul class="mock-list">
+            <li class="mock-item">
+              <span class="mock-check"><i class="fa-regular fa-circle"></i></span>
+              <span class="mock-name">Milk</span>
+              <span class="mock-tag">2 pcs</span>
+            </li>
+
+            <li class="mock-item">
+              <span class="mock-check done"><i class="fa-solid fa-circle-check"></i></span>
+              <span class="mock-name">Pasta</span>
+              <span class="mock-tag is-done">Bought</span>
+            </li>
+
+            <li class="mock-item">
+              <span class="mock-check"><i class="fa-regular fa-circle"></i></span>
+              <span class="mock-name">Chicken</span>
+              <span class="mock-tag">500g</span>
+            </li>
+
+            <li class="mock-item">
+              <span class="mock-check"><i class="fa-regular fa-circle"></i></span>
+              <span class="mock-name">Tomatoes</span>
+              <span class="mock-tag">6 pcs</span>
+            </li>
+          </ul>
+
+          <div class="mock-footer">
+            <span><i class="fa-solid fa-users"></i> 3 members</span>
+            <span><i class="fa-solid fa-clock"></i> updated now</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-subtitle">
+        The idea is simple: one shared list that everyone can see and update.
+      </p>
+
+      <div class="grid3">
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3 class="feature-title">Create lists</h3>
+          <p class="feature-text">
+            You can create multiple lists and rename them whenever you want.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-user-group"></i></div>
+          <h3 class="feature-title">Invite members</h3>
+          <p class="feature-text">
+            Share the list with other users so everyone can contribute.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3 class="feature-title">Shop smarter</h3>
+          <p class="feature-text">
+            Mark items as bought and avoid buying the same thing twice.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-text">RayaListly • Shared shopping list</p>
+    </footer>
+  </main>
+
+  <section id="login-box" class="auth-modal hidden-modal">
+    <div class="auth-card">
+      <button class="close-btn" type="button" onclick="closeAuth()">×</button>
+      <h2>Log in</h2>
+
+      <input id="login-username" type="text" placeholder="Username" autocomplete="username" />
+      <input id="login-password" type="password" placeholder="Password" autocomplete="current-password" />
+
+      <button id="loginSubmitBtn" type="button" class="btn btn-primary auth-submit-btn">
+        Log in
+      </button>
+
+      <a class="forgot-link" href="ForgotPassw3.html">Forgot password?</a>
+
+      <p class="auth-switch">
+        Don’t have an account?
+        <button type="button" id="go-signup" class="link-btn">Sign up</button>
+      </p>
+    </div>
+  </section>
+
+  <section id="signup-box" class="auth-modal hidden-modal">
+    <div class="auth-card">
+      <button class="close-btn" type="button" onclick="closeAuth()">×</button>
+      <h2>Create account</h2>
+
+      <input id="signup-email" type="email" placeholder="Email" autocomplete="email" />
+      <input id="signup-fullname" type="text" placeholder="Full name" autocomplete="name" />
+      <input id="signup-username" type="text" placeholder="Username" autocomplete="username" />
+      <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password" />
+
+      <label class="auth-terms">
+        <input type="checkbox" id="terms-checkbox" />
+        I agree to the terms
+      </label>
+
+      <button id="signupSubmitBtn" type="button" class="btn btn-primary auth-submit-btn" disabled>
+        Create account
+      </button>
+
+      <p class="auth-switch">
+        Already have an account?
+        <button type="button" id="go-login" class="link-btn">Log in</button>
+      </p>
+    </div>
+  </section>
+
+  <script src="PublicHome1.js"></script>
+</body>
+</html>

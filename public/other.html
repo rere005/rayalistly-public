@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create List - RayaListly</title>
+  <link rel="icon" href="bilder/icon.png">
+  <link rel="stylesheet" href="otherlist.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" id="logo-link">
+      <img src="bilder/logo.png" alt="RayaListly logo" class="brand-logo">
+    </a>
+
+    <div class="top-actions">
+      <a href="PrivateHome2.html" class="top-btn top-btn--ghost">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Menu
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-intro">
+      <span class="page-badge">My Lists</span>
+      <h1>Create and manage a beautiful list</h1>
+      <p>Give your list a name, add items, and keep everything organized in one clean view.</p>
+    </section>
+
+    <section class="create-list-bar">
+      <input
+        type="text"
+        id="listNameInput"
+        placeholder="Enter list name..."
+        autocomplete="off"
+      >
+      <button id="createListBtn" type="button" class="create-list-btn">
+        Create List
+      </button>
+    </section>
+
+    <div class="list-layout">
+      <aside class="list-sidebar">
+        <div class="sidebar-card">
+          <h3>List details</h3>
+
+          <div class="sidebar-row">
+            <i class="fa-solid fa-list"></i>
+            <span class="current-list-name">New List</span>
+          </div>
+
+          <div class="sidebar-row owner-row">
+            <i class="fa-solid fa-user"></i>
+            <span id="ownerText">Owned by you</span>
+          </div>
+
+          <div class="sidebar-row">
+            <i class="fa-solid fa-list-check"></i>
+            <span class="items-count">0 items</span>
+          </div>
+
+          <div class="sidebar-row">
+            <i class="fa-solid fa-clock"></i>
+            <span>Auto saved</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Members</h3>
+
+          <ul id="listMembers">
+            <li class="member-placeholder">Create the list first</li>
+          </ul>
+
+          <button id="toggleMemberPickerBtn" class="add-member-btn" type="button">
+            <i class="fa-solid fa-user-plus"></i>
+            Add member
+          </button>
+
+          <div id="memberPickerBox" class="member-picker hidden-box">
+            <select id="memberSelect">
+              <option value="">Select a contact</option>
+            </select>
+
+            <button id="addMemberBtn" type="button" class="member-confirm-btn">
+              Add
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="list-card">
+        <div class="list-window-bar">
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <h2 class="current-list-name">New List</h2>
+        </div>
+
+        <div class="list-content">
+          <div class="input-row">
+            <input
+              type="text"
+              id="itemInput"
+              placeholder="Item name..."
+              autocomplete="off"
+            >
+
+            <input
+              type="number"
+              id="quantityInput"
+              placeholder="Qty"
+              min="1"
+            >
+
+            <div class="select-wrap">
+              <select id="unitSelect">
+                <option value="pcs">pcs</option>
+                <option value="kg">kg</option>
+                <option value="L">L</option>
+                <option value="pack">pack</option>
+              </select>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+            <button id="addBtn" class="primary-btn" type="button">
+              Add item
+            </button>
+          </div>
+
+          <ul id="shoppingList">
+            <li class="empty-list-item">No items yet</li>
+          </ul>
+        </div>
+
+        <div class="list-footer">
+          <span class="items-count">
+            <i class="fa-solid fa-list-check"></i>
+            0 items
+          </span>
+
+          <span>
+            <i class="fa-solid fa-clock"></i>
+            saved automatically
+          </span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="otherlist.js"></script>
+</body>
+</html>

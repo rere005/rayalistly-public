@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Family List - RayaListly</title>
+  <link rel="icon" href="bilder/icon.png">
+  <link rel="stylesheet" href="familylist.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="PrivateHome2.html" class="logo-wrap">
+      <img src="bilder/logo.png" alt="RayaListly logo">
+    </a>
+
+    <div class="top-actions">
+      <a href="PrivateHome2.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Menu</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-intro">
+      <span class="page-badge">Family List</span>
+      <h1>Create your family shopping list</h1>
+      <p>Add items for your home and save the list directly to My Lists.</p>
+    </section>
+
+    <section class="create-list-bar">
+      <input
+        type="text"
+        id="listNameInput"
+        placeholder="Example: Family groceries"
+        autocomplete="off"
+      >
+      <button id="createListBtn" type="button" class="create-list-btn">
+        Create List
+      </button>
+    </section>
+
+    <section class="list-card">
+      <div class="card-header">
+        <h2 class="current-list-name">New Family List</h2>
+        <p>This list is great for groceries, home items, and shared planning.</p>
+        <p id="ownerText" class="owner-text"></p>
+        <p id="memberActionInfo" class="owner-text"></p>
+      </div>
+
+      <section class="members-section">
+        <div class="members-top">
+          <div>
+            <h3>Family members</h3>
+            <p>Choose people from your contacts and add them to this list.</p>
+          </div>
+
+          <button id="toggleMemberPickerBtn" type="button" class="member-btn">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Add member</span>
+          </button>
+        </div>
+
+        <div id="memberPickerBox" class="member-picker hidden-box">
+          <select id="memberSelect">
+            <option value="">Select a contact</option>
+          </select>
+
+          <button id="addMemberBtn" type="button" class="member-add-btn">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add</span>
+          </button>
+        </div>
+
+        <ul id="memberList" class="member-list">
+          <li class="empty-state">Create the list first.</li>
+        </ul>
+      </section>
+
+      <section id="pendingRequestsSection" class="requests-section">
+        <h3>Pending member requests</h3>
+
+        <ul id="pendingRequestsList" class="request-list">
+          <li class="empty-state">No pending requests.</li>
+        </ul>
+      </section>
+
+      <div class="add-item-grid">
+        <input
+          type="text"
+          id="itemNameInput"
+          placeholder="Item name..."
+          autocomplete="off"
+        >
+
+        <input
+          type="number"
+          id="quantityInput"
+          placeholder="Qty"
+          min="1"
+        >
+
+        <div class="select-wrap">
+          <select id="unitSelect">
+            <option value="pcs">pcs</option>
+            <option value="kg">kg</option>
+            <option value="L">L</option>
+            <option value="pack">pack</option>
+          </select>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <button id="addItemBtn" type="button" class="add-btn">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add</span>
+        </button>
+      </div>
+
+      <ul id="visualItemList">
+        <li class="empty-state">Create the list first.</li>
+      </ul>
+
+      <button id="saveListBtn" class="save-btn" type="button">
+        Save to My Lists
+      </button>
+    </section>
+  </main>
+
+  <script src="familylist.js"></script>
+</body>
+</html>  

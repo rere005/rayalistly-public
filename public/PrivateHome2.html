@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RayaListly</title>
+
+  <link rel="icon" href="bilder/icon.png">
+  <link rel="stylesheet" href="2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#" class="logo-wrap" id="logo-link">
+      <img src="bilder/logo.png" alt="RayaListly logo">
+    </a>
+
+    <nav class="top-actions">
+      <button class="account-btn" id="account-link" type="button">
+        <i class="fa-regular fa-user"></i>
+        <span>My Account</span>
+      </button>
+
+      <div id="account-section" class="account-card hidden">
+        <h2>My Account</h2>
+
+        <div class="info-row">
+          <label for="acc-name">Name</label>
+          <input type="text" id="acc-name" readonly placeholder="Loading...">
+        </div>
+
+        <div class="info-row">
+          <label for="acc-username">Username</label>
+          <input type="text" id="acc-username" readonly placeholder="Loading...">
+        </div>
+
+        <div class="info-row">
+          <label for="acc-email">Email</label>
+          <input type="text" id="acc-email" readonly placeholder="Loading...">
+        </div>
+
+        <div class="info-row">
+          <label for="acc-password">Password</label>
+          <div class="password-container">
+            <input type="password" id="acc-password" value="********" readonly>
+            <button class="edit-btn" id="change-password-btn" type="button">Change</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="logout-btn" class="logout-btn" type="button">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Log out</span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        <h2>Dashboard</h2>
+        <p>Organize your lists in a simple way</p>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <button class="menu-link active-link" id="toggleCreateMenuBtn" type="button">
+            <i class="fa-solid fa-circle-plus"></i>
+            <span>Create New List</span>
+          </button>
+
+          <div id="mySubmenu" class="submenu">
+            <ul>
+              <li>
+                <a href="privatelist.html">
+                  <span>Private</span>
+                  <i class="fa-solid fa-plus"></i>
+                </a>
+              </li>
+
+              <li>
+                <a href="familylist.html">
+                  <span>Family</span>
+                  <i class="fa-solid fa-plus"></i>
+                </a>
+              </li>
+
+              <li>
+                <a href="other.html">
+                  <span>Other</span>
+                  <i class="fa-solid fa-plus"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <button class="menu-link" id="showMyListBtn" type="button" onclick="toggleSavedLists()">
+            <i class="fa-solid fa-list"></i>
+            <span>My Lists</span>
+          </button>
+
+          <div id="savedListsMenu" class="submenu">
+            <ul id="myCreatedLists"></ul>
+          </div>
+        </li>
+
+        <li>
+          <button class="menu-link" type="button" onclick="toggleHistoryLists()">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+          </button>
+
+          <div id="historyMenu" class="submenu">
+            <ul id="historyLists"></ul>
+          </div>
+        </li>
+
+        <li>
+          <a href="contacts.html" class="menu-link">
+            <i class="fa-solid fa-address-book"></i>
+            <span>Contacts</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="hero-card">
+        <div class="hero-text">
+          <span class="welcome-badge">Welcome back👋</span>
+          <h1>Manage your lists beautifully and easily</h1>
+          <p>
+            Create a new list, open your saved lists, and keep everything organized
+            in one place with RayaListly.
+          </p>
+
+          <div class="hero-actions">
+            <a href="javascript:void(0)" class="primary-btn" onclick="document.getElementById('toggleCreateMenuBtn').click()">
+              <i class="fa-solid fa-circle-plus"></i>
+              Create New List
+            </a>
+
+            <a href="javascript:void(0)" class="secondary-btn" onclick="toggleSavedLists()">
+              <i class="fa-solid fa-list"></i>
+              View My Lists
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-cards">
+        <div class="quick-card">
+          <i class="fa-solid fa-lock"></i>
+          <h3>Private Lists</h3>
+          <p>Create personal lists and keep your important items safe and organized.</p>
+        </div>
+
+        <div class="quick-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Family Lists</h3>
+          <p>Plan together and collect useful information for your family in one place.</p>
+        </div>
+
+        <div class="quick-card">
+          <i class="fa-solid fa-address-book"></i>
+          <h3>Contacts</h3>
+          <p>Save and manage useful contacts so they are always easy to find.</p>
+        </div>
+      </section>
+
+      <section class="request-card">
+        <div class="request-card-header">
+          <h2>List Invitations</h2>
+          <p>Here you can accept or decline invitations to join lists.</p>
+        </div>
+
+        <ul id="targetInvitationsList" class="request-list">
+          <li class="request-empty">📨 No invitations.</li>
+        </ul>
+      </section>
+
+      <section class="request-card">
+        <div class="request-card-header">
+          <h2>Member Requests</h2>
+          <p>Here you can accept or decline requests for lists.</p>
+        </div>
+
+        <ul id="listShareRequestsList" class="request-list">
+          <li class="request-empty">📭 No requests.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="PrivateHome2.js"></script>
+  <script src="list.js"></script>
+</body>
+</html>

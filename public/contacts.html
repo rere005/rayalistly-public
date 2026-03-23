@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RayaListly - Contacts</title>
+  <link rel="icon" href="bilder/icon.png">
+
+  <link rel="stylesheet" href="contacts.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a herf="#" class="brand" id="logo-link">
+      <img src="bilder/logo.png" alt="RayaListly logo" class="brand-logo">
+    </a>
+
+    <div class="top-actions">
+      <a href="PrivateHome2.html" class="btn-link">
+        <button type="button" class="action-btn action-btn--back">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back
+        </button>
+      </a>
+
+      <button type="button" id="logout-btn" class="action-btn action-btn--logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Log out
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-intro">
+      <span class="page-badge">Connections</span>
+      <h1>Manage your contacts</h1>
+      <p>
+        Search for users, send friend requests, and keep your contact list organized in one place.
+      </p>
+    </section>
+
+    <section class="contacts-layout">
+      <aside class="panel side-panel">
+        <div class="panel-header">
+          <h2>
+            <i class="fa-solid fa-user-plus"></i>
+            Friend Requests
+          </h2>
+          <p>Accept or decline incoming requests.</p>
+        </div>
+
+        <div id="requests-list" class="panel-list"></div>
+
+        <div class="panel-note">
+          Accept adds the user to your contacts. Decline removes the request.
+        </div>
+      </aside>
+
+      <section class="panel center-panel">
+        <div class="panel-header">
+          <h2>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Find a user
+          </h2>
+          <p>Search by username or email and send a request.</p>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by email or username..."
+            autocomplete="off"
+          >
+
+          <button id="search-btn" type="button" class="search-btn">
+            Search
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <div id="result-box" class="result-card hidden-result">
+          <div class="result-left">
+            <div class="result-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="result-text">
+              <span class="result-label">User found</span>
+              <span id="username-display" class="result-username"></span>
+            </div>
+          </div>
+
+          <button class="send-btn" type="button" id="send-request-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            Send Request
+          </button>
+        </div>
+
+        <div class="search-tip">
+          Tip: press Enter to search faster.
+        </div>
+      </section>
+
+      <aside class="panel side-panel">
+        <div class="panel-header">
+          <h2>
+            <i class="fa-solid fa-address-book"></i>
+            My Contacts
+          </h2>
+          <p>Your saved contacts appear here.</p>
+        </div>
+
+        <ul id="my-contacts-list" class="contacts-list"></ul>
+
+        <div id="contacts-empty" class="panel-note">
+          No contacts yet. Accept a request or search and send one.
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="contacts.js"></script>
+</body>
+</html>
